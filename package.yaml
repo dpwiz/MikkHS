@@ -10,11 +10,6 @@ extra-source-files:
 - README.md
 - CHANGELOG.md
 
-# synopsis: Short description of your package
-# category: Graphics
-
-#description: .
-
 dependencies:
 - base >= 4.7 && < 5
 
@@ -30,19 +25,15 @@ ghc-options:
 - -Wpartial-fields
 - -Wredundant-constraints
 
+include-dirs:
+  - cbits
+
 library:
   source-dirs: src
-
-executables:
-  MikkHS:
-    main: Main.hs
-    source-dirs: app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - MikkHS
+  c-sources:
+    - cbits/mikktspace.c
+  install-includes:
+    - mikktspace.h
 
 tests:
   MikkHS-test:
