@@ -1,6 +1,9 @@
 module Main (main) where
 
-import Lib
+import MikkTSpace.FFI
+import Foreign.Storable (sizeOf)
 
 main :: IO ()
-main = someFunc
+main = do
+    putStrLn "MikkTSpace FFI loaded."
+    putStrLn $ "Size of SMikkTSpaceContext: " ++ show (sizeOf (undefined :: SMikkTSpaceContext))

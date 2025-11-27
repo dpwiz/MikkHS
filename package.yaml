@@ -30,8 +30,15 @@ ghc-options:
 - -Wpartial-fields
 - -Wredundant-constraints
 
+include-dirs:
+  - cbits
+
 library:
   source-dirs: src
+  c-sources:
+    - cbits/mikktspace.c
+  install-includes:
+    - mikktspace.h
 
 executables:
   MikkHS:
